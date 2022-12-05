@@ -1,3 +1,0 @@
-﻿  Test.cpp
-gmock.lib(gtest-all.obj) : warning LNK4099: PDB '' was not found with 'gmock.lib(gtest-all.obj)' or at ''; linking object as if no debug info
-  Test.vcxproj -> C:\Users\david\OneDrive\Documents\dev\Homework\HW7\x64\Debug\Test.exe
