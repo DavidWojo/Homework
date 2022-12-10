@@ -3,22 +3,46 @@
 #include <exception>
 
 
-Person::Person(const std::string& fname, const std::string& lName, const std::string& ssNum)
+Person::Person(const std::string& fName, const std::string& lName, const std::string& ssNum)
 {
-	if (!FirstNameIsValid(fname) || !LastNameIsValid(lName) || !SocialSecurityNumberIsValid(ssNum))
-		throw std::exception("Invalid first name, last name, or social security number!");
+	this->SetFirstName(fName);
+	this->SetLastName(lName);
+	this->SetSocialSecurityNumber(ssNum);
 }
 
-bool Person::FirstNameIsValid(const std::string& fName)
+std::string Person::GetFirstName() const
 {
-	return true;
+    return this->firstName;
 }
 
-bool Person::LastNameIsValid(const std::string& fName)
+
+std::string Person::GetLastName() const
 {
-	return true;
+	return this->lastName;
 }
-bool Person::SocialSecurityNumberIsValid(const std::string& fName)
+
+std::string Person::GetSocialSecurityNumber() const
 {
-	return true;
+	return this->socialSecurityNumber;
+}
+
+void Person::SetFirstName(const std::string& fName)
+{
+	if (fName.empty())
+		throw std::exception("Invalid first name!");
+	this->firstName = fName;
+}
+
+void Person::SetLastName(const std::string& lName)
+{
+	if (lName.empty())
+		throw std::exception("Invalid last name!");
+	this->lastName = lName;
+}
+
+void Person::SetSocialSecurityNumber(const std::string& ssNum)
+{
+	if (ssNum.empty())
+		throw std::exception("Invalid social security number!");
+	this->socialSecurityNumber = ssNum;
 }

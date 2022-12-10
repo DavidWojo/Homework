@@ -2,10 +2,34 @@
 #include "Person.h"
 
 
-TEST(PersonTestSuite, PersonTestName1)
+TEST(PersonTestSuite, PersonTestConstructorWithValidParams)
 {
 	Person p("John", "Smith", "111 - 22 - 3456");
-	ASSERT_EQ(1, 1);
+}
+
+TEST(PersonTestSuite, PersonTestConstructorWithInvalidFirstName)
+{
+	EXPECT_ANY_THROW(
+		{
+			Person p("", "Smith", "111 - 22 - 3456");
+		}
+	);
+}
+
+TEST(PersonTestSuite, PersonTestConstructorWithInvalidLastName)
+{
+	EXPECT_ANY_THROW(
+		{
+			Person p("John", "", "111 - 22 - 3456");
+		}
+	);
+}
+
+TEST(PersonTestSuite, PersonTestName2)
+{
+	Person p("John", "Smith", "111 - 22 - 3456");
+	p.SetFirstName("David");
+	ASSERT_EQ("David", p.GetFirstName());
 }
 
 
