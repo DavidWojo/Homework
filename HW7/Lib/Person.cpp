@@ -46,3 +46,10 @@ void Person::SetSocialSecurityNumber(const std::string& ssNum)
 		throw std::exception("Invalid social security number!");
 	this->socialSecurityNumber = ssNum;
 }
+
+void Person::Print() const
+{
+	std::cout << "First Name: " << GetFirstName() << std::endl;
+	std::cout << "Last Name:  " << GetLastName()  << std::endl;
+	std::cout << "Social Security Number: " << GetSocialSecurityNumber() << std::endl;
+}

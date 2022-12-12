@@ -1,6 +1,6 @@
 #pragma once
-#include "Person.h"
 #include <string>
+#include "Person.h"
 
 class Employee : Person
 {
@@ -12,6 +12,7 @@ public:
 	std::string GetLastName() const;
 	std::string GetSocialSecurityNumber() const;
 	std::string GetEmployeeID() const;
+	virtual void Print() const override;
 
 
 protected:

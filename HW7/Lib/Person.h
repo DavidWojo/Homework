@@ -14,8 +14,7 @@ public:
 	void SetFirstName(const std::string& fName);
 	void SetLastName(const std::string& fName);
 	void SetSocialSecurityNumber(const std::string& fName);
-
-
+	virtual void Print() const;
 
 protected:
 	std::string firstName;
