@@ -10,25 +10,16 @@ Employee::Employee(const std::string &fName, const std::string &lName,
 {
 }
 
-std::string Employee::GetFirstName() const
-{
-	return Person::GetFirstName();
-}
-
-std::string Employee::GetLastName() const
-{
-	return Person::GetLastName();
-}
-
-std::string Employee::GetSocialSecurityNumber() const
-{
-	return Person::GetSocialSecurityNumber();
-}
-
 std::string Employee::GetEmployeeID() const
 {
 	return this->employeeID;
 }
+
+void Employee::SetEmployeeID(const std::string &empID)
+{
+	this->employeeID = empID;
+}
+
 
 void Employee::Print() const
 {
