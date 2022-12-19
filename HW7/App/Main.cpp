@@ -2,30 +2,47 @@
 #include "Functions.h"
 #include "Person.h"
 #include "Employee.h"
+#include <vector>
+
+
+void PrintPeopleInfo_ViaReference(const Person & personRef)
+{
+		personRef.Print();
+		std::cout << std::endl;
+}
+
+void PrintPeopleInfo_ViaPointer(const Person *personPtr)
+{
+		personPtr->Print();
+		std::cout << std::endl;
+}
 
 
 int main(int argc, char* argv[])
 {
 	std::cout << "Starting main()..." << std::endl;
-	Person* people[5];
 
-	Employee employee("David", "Wojciechowski", "111-22-3456", "J51776");
-	employee.SetFirstName("AA");
-	employee.SetLastName("bb");
-	employee.SetSocialSecurityNumber("11");
+	std::vector<const Person *> peopleVec(2);
+	Employee employee("N/A", "N/A", "N/A", "N/A");
+	employee.SetFirstName("David ");
+	employee.SetLastName("Wojciechowski");
+	employee.SetSocialSecurityNumber("111-22-3333");
+	employee.SetEmployeeID("J51776");
 
-	Person person("Sylvia", "Kedzierski", "333-22-4567");
+	Person person("Joe", "Smith", "333-22-4567");
 
-	people[0] = (Person*)&employee;
-	people[1] = (Person*)&person;
+	peopleVec[0] = &employee;
+	peopleVec[1] = &person;
 
-	for (int i = 0; i < 2; i++)
-	{
-		Person* personPtr = people[i];
+	for (const Person* p : peopleVec)
+		PrintPeopleInfo_ViaPointer(p);
 
-		personPtr->Print();
-		std::cout << std::endl;
-	}
+	std::cout << std::endl;
+	std::cout << std::endl;
+
+	for (const Person* p : peopleVec)
+		PrintPeopleInfo_ViaReference(*p);
+
 	func1();
 	return 0;
 }
