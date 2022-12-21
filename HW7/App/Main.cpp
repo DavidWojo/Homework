@@ -6,34 +6,41 @@
 #include <typeinfo>
 
 
+/*
+* Given a reference to a const Person object, call the Print()
+* method (which is virtual)
+*/
 void PrintPeopleInfo_ViaReference(const Person & personRef)
 {
-
-		personRef.Print();
-		std::string s = "Type: " + std::string(typeid(personRef).name());
-		std::cout << s << std::endl;
-
-		std::cout << std::endl;
+	std::string s = "Object Type: " + std::string(typeid(personRef).name());
+	std::cout << s << std::endl;
+	personRef.Print();
+	std::cout << std::endl;
 }
 
 void PrintPeopleInfo_ViaPointer(const Person *personPtr)
 {
-		personPtr->Print();
-		std::cout << std::endl;
+	std::string s = "Object Type: " + std::string(typeid(*personPtr).name());
+	std::cout << s << std::endl;
+	personPtr->Print();
+	std::cout << std::endl;
 }
-
 
 int main(int argc, char* argv[])
 {
 	std::cout << "Starting main()..." << std::endl;
 
+	// A vector to hold 2 items (pointers to const Person objects)
 	std::vector<const Person *> peopleVec(2);
+
+	// create an Employee object
 	Employee employee("N/A", "N/A", "N/A", "N/A");
 	employee.SetFirstName("David ");
-	employee.SetLastName("Wojciechowski");
+	employee.SetLastName("Wojo");
 	employee.SetSocialSecurityNumber("111-22-3333");
-	employee.SetEmployeeID("J51776");
+	employee.SetEmployeeID("J54321");
 
+	// create a Person object
 	Person person("Joe", "Smith", "333-22-4567");
 
 	peopleVec[0] = &employee;

@@ -3,6 +3,6 @@
 
 int func1()
 {
-	std::cout << "Entering func1()..." << std::endl;
-	return 77;
+	std::cout << "Calling Library func1()..." << std::endl;
+	return 0;
 }
