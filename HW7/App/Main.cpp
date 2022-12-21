@@ -3,11 +3,16 @@
 #include "Person.h"
 #include "Employee.h"
 #include <vector>
+#include <typeinfo>
 
 
 void PrintPeopleInfo_ViaReference(const Person & personRef)
 {
+
 		personRef.Print();
+		std::string s = "Type: " + std::string(typeid(personRef).name());
+		std::cout << s << std::endl;
+
 		std::cout << std::endl;
 }
 
