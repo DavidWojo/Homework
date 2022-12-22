@@ -2,12 +2,19 @@
 #include "Person.h"
 
 
-TEST(PersonTestSuite, PersonTestConstructorWithValidParams)
+TEST(PersonTestSuite, TestPersonConstructorWithValidParams)
 {
-	Person p("John", "Smith", "111 - 22 - 3456");
+	EXPECT_NO_THROW(
+		{
+			Person p("John", "Smith", "111 - 22 - 3456");
+			ASSERT_EQ("John", p.GetFirstName());
+			ASSERT_EQ("Smith", p.GetLastName());
+			ASSERT_EQ("111 - 22 - 3456", p.GetSocialSecurityNumber());
+		}
+	);
 }
 
-TEST(PersonTestSuite, PersonTestConstructorWithInvalidFirstName)
+TEST(PersonTestSuite, TestPersonConstructorWithInvalidFirstName)
 {
 	EXPECT_ANY_THROW(
 		{
@@ -16,7 +23,7 @@ TEST(PersonTestSuite, PersonTestConstructorWithInvalidFirstName)
 	);
 }
 
-TEST(PersonTestSuite, PersonTestConstructorWithInvalidLastName)
+TEST(PersonTestSuite, TestPersonConstructorWithInvalidLastName)
 {
 	EXPECT_ANY_THROW(
 		{
@@ -25,12 +32,6 @@ TEST(PersonTestSuite, PersonTestConstructorWithInvalidLastName)
 	);
 }
 
-TEST(PersonTestSuite, PersonTestName2)
-{
-	Person p("John", "Smith", "111 - 22 - 3456");
-	p.SetFirstName("David");
-	ASSERT_EQ("David", p.GetFirstName());
-}
 
 
 int main(int argc, char** argv)
