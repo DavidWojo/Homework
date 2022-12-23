@@ -8,9 +8,10 @@
 
 /*
 * Given a reference to a const Person object, call the Print()
-* method (which is virtual)
+* method (which is virtual). Also print the type of object that
+* we are dealing with.
 */
-void PrintPeopleInfo_ViaReference(const Person & personRef)
+void PrintPeopleInfo_ViaReference(const Person &personRef)
 {
 	std::string s = "Object Type: " + std::string(typeid(personRef).name());
 	std::cout << s << std::endl;
@@ -18,7 +19,12 @@ void PrintPeopleInfo_ViaReference(const Person & personRef)
 	std::cout << std::endl;
 }
 
-void PrintPeopleInfo_ViaPointer(const Person *personPtr)
+/*
+* Given a pointer to a const Person object, call the Print()
+* method (which is virtual). Also print the type of object that 
+* we are dealing with.
+*/
+void PrintPeopleInfo_ViaPointer(const Person *const personPtr)
 {
 	std::string s = "Object Type: " + std::string(typeid(*personPtr).name());
 	std::cout << s << std::endl;
@@ -26,12 +32,12 @@ void PrintPeopleInfo_ViaPointer(const Person *personPtr)
 	std::cout << std::endl;
 }
 
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
 	std::cout << "Starting main()..." << std::endl;
 
-	// A vector to hold 2 items (pointers to const Person objects)
-	std::vector<const Person *> peopleVec(2);
+	// A vector to hold 2 items (pointers to Person objects)
+	std::vector<Person *> peopleVec(2);
 
 	// create an Employee object
 	Employee employee("N/A", "N/A", "N/A", "N/A");
@@ -46,13 +52,13 @@ int main(int argc, char* argv[])
 	peopleVec[0] = &employee;
 	peopleVec[1] = &person;
 
-	for (const Person* p : peopleVec)
+	for (Person *p : peopleVec)
 		PrintPeopleInfo_ViaPointer(p);
 
 	std::cout << std::endl;
 	std::cout << std::endl;
 
-	for (const Person* p : peopleVec)
+	for (Person *p : peopleVec)
 		PrintPeopleInfo_ViaReference(*p);
 
 	func1();

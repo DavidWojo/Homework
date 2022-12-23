@@ -5,15 +5,15 @@
 class Person
 {
 public:
-	Person(const std::string& fname,
-		const std::string& lName,
-		const std::string& ssNum);
+	Person(const std::string &fname,
+		const std::string &lName,
+		const std::string &ssNum);
 	std::string GetFirstName() const ;
 	std::string GetLastName() const ;
 	std::string GetSocialSecurityNumber() const ;
-	void SetFirstName(const std::string& fName);
-	void SetLastName(const std::string& fName);
-	void SetSocialSecurityNumber(const std::string& fName);
+	void SetFirstName(const std::string &fName);
+	void SetLastName(const std::string &fName);
+	void SetSocialSecurityNumber(const std::string &fName);
 	virtual void Print() const;
 
 private:
