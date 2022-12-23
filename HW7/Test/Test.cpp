@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include "Person.h"
+#include "Employee.h"
 
 
 TEST(PersonTestSuite, TestPersonConstructorWithValidParams)
@@ -14,6 +15,20 @@ TEST(PersonTestSuite, TestPersonConstructorWithValidParams)
 	);
 }
 
+TEST(EmployeeTestSuite, TestEmployeeConstructorWithValidParams)
+{
+	EXPECT_NO_THROW(
+		{
+			Employee e("John", "Smith", "111 - 22 - 3456", "j76543");
+			ASSERT_EQ("John", e.GetFirstName());
+			ASSERT_EQ("Smith", e.GetLastName());
+			ASSERT_EQ("111 - 22 - 3456", e.GetSocialSecurityNumber());
+			ASSERT_EQ("j76543", e.GetEmployeeID());
+		}
+	);
+}
+
+
 TEST(PersonTestSuite, TestPersonConstructorWithInvalidFirstName)
 {
 	EXPECT_ANY_THROW(
@@ -22,6 +37,16 @@ TEST(PersonTestSuite, TestPersonConstructorWithInvalidFirstName)
 		}
 	);
 }
+
+TEST(EmployeeTestSuite, TestEmployeeConstructorWithInvalidFirstName)
+{
+	EXPECT_ANY_THROW(
+		{
+			Employee e("", "Smith", "111 - 22 - 3456", "j76543");
+		}
+	);
+}
+
 
 TEST(PersonTestSuite, TestPersonConstructorWithInvalidLastName)
 {
@@ -32,6 +57,42 @@ TEST(PersonTestSuite, TestPersonConstructorWithInvalidLastName)
 	);
 }
 
+TEST(EmployeeTestSuite, TestEmployeeConstructorWithInvalidLastName)
+{
+	EXPECT_ANY_THROW(
+		{
+			Employee e("John", "", "111 - 22 - 3456", "j76543");
+		}
+	);
+}
+
+
+TEST(PersonTestSuite, TestPersonConstructorWithInvalidSocialSecurityNumber)
+{
+	EXPECT_ANY_THROW(
+		{
+			Person p("John", "Smith", "");
+		}
+	);
+}
+
+TEST(EmployeeTestSuite, TestEmployeeConstructorWithInvalidSocialSecurityNumber)
+{
+	EXPECT_ANY_THROW(
+		{
+			Employee e("John", "Smith", "", "j76543");
+		}
+	);
+}
+
+TEST(EmployeeTestSuite, TestEmployeeConstructorWithInvalidEmployeeID)
+{
+	EXPECT_ANY_THROW(
+		{
+			Employee e("John", "Smith", "111-22-333", "");
+		}
+	);
+}
 
 
 int main(int argc, char** argv)
