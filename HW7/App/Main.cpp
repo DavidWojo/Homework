@@ -5,17 +5,25 @@
 #include <vector>
 #include <typeinfo>
 
+/* 
+* This aplication is used to demonstrate C++ poymorphism via virtual functions.
+* We have a Person base class and a derived class called Employee.  That means Employee
+* inherits from Person.  We have a pointer to a Person object and a pointer to an 
+* Employee object.  We then call the appropriate Print() method, depending on wether
+* the object being pointed to is a base class object or a derived class object.
+*/
+
 
 /*
 * Given a reference to a const Person object, call the Print()
 * method (which is virtual). Also print the type of object that
 * we are dealing with.
 */
-void PrintPeopleInfo_ViaReference(const Person &personRef)
+void PrintPeopleInfo_ViaReference(const Person &pRef)
 {
-	std::string s = "Object Type: " + std::string(typeid(personRef).name());
+	std::string s = "Object Type: " + std::string(typeid(pRef).name());
 	std::cout << s << std::endl;
-	personRef.Print();
+	pRef.Print();
 	std::cout << std::endl;
 }
 
@@ -24,11 +32,11 @@ void PrintPeopleInfo_ViaReference(const Person &personRef)
 * method (which is virtual). Also print the type of object that 
 * we are dealing with.
 */
-void PrintPeopleInfo_ViaPointer(const Person *const personPtr)
+void PrintPeopleInfo_ViaPointer(const Person *const pPtr)
 {
-	std::string s = "Object Type: " + std::string(typeid(*personPtr).name());
+	std::string s = "Object Type: " + std::string(typeid(*pPtr).name());
 	std::cout << s << std::endl;
-	personPtr->Print();
+	pPtr->Print();
 	std::cout << std::endl;
 }
 
@@ -36,10 +44,10 @@ int main(int argc, char *argv[])
 {
 	std::cout << "Starting main()..." << std::endl;
 
-	// A vector to hold 2 items (pointers to Person objects)
+	// A vector to hold 2 items (pointers to base class objects)
 	std::vector<Person *> peopleVec(2);
 
-	// create an Employee object
+	// create an Employee object, then change the attributes
 	Employee employee("N/A", "N/A", "N/A", "N/A");
 	employee.SetFirstName("David ");
 	employee.SetLastName("Wojo");
