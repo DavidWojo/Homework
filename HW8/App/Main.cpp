@@ -1,10 +1,12 @@
 #include <iostream>
 #include <memory>
+#include <utility>
 
-using namespace std;
 
 /*
- * The purpose of this app is demonstrate the use of the unique_ptr class.
+ * The purpose of this app is demonstrate the use of the unique_ptr class
+ * instead of using old-fashioned memory management via keywords 'new'
+ * and 'delete'.
 
 */
 
@@ -21,12 +23,12 @@ private:
 
 Integer::Integer(int i) : value(i)
 {
-	cout << "Constructor for Integer " << value << endl;
+	std::cout << "Constructor for integer, value is " << value << std::endl;
 }
 
 Integer::~Integer()
 {
-	cout << "Destructor for Intger " << value << endl;
+	std::cout << "Destructor for integer " << value << std::endl;
 }
 
 void Integer::SetInteger(int i)
@@ -39,10 +41,28 @@ int Integer::GetInteger() const
 	return value;
 }
 
+std::unique_ptr<Integer> f1()
+{
+	return std::make_unique<Integer>();
+}
 
+int *f2()
+{
+	int *pInt = new int(0);
+	return pInt;
+}
 
 int main(int argc, char* argv[])
 {
-	unique_ptr<Integer> pInt(new Integer(34));
+	//int *pIntBad = Bad();
+	//cout << "The integer has a value of " << *pIntBad << endl;
+
+	std::unique_ptr<Integer> pInt{};
+	std::cout << "pInt is " << (pInt ? "not null" : "null") << std::endl;
+	pInt = f1();
+	std::cout << "pInt is " << (pInt ? "not null" : "null") << std::endl;
+	pInt->SetInteger(77);
+	std::cout << "The integer has a value of " << pInt->GetInteger() << std::endl;
+
 	return 0;
 }
