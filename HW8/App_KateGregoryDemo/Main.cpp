@@ -8,7 +8,7 @@ private:
 	std::string name;
 public:
 	Resource(const std::string &n);
-	~Resource(void);
+	~Resource();
 	std::string GetName() const { return name; }
 };
 
@@ -18,7 +18,7 @@ Resource::Resource(const std::string &n) :
 	std::cout << "constructing " << name << '\n';
 }
 
-Resource::~Resource(void)
+Resource::~Resource()
 {
 	std::cout << "destructing " << name << '\n';
 }
@@ -35,7 +35,7 @@ public:
 	std::string GetName() const;
 	int GetNumber() const { return arbitrarynumber; }
 	void SetNumber(int number) { arbitrarynumber = number; }
-	void SetName(std::string n) { name = n; }
+	void SetName(const std::string &n) { name = n; }
 	void AddResource();
 	std::string GetResourceName() const { return pResource ? pResource->GetName() : ""; }
 };
