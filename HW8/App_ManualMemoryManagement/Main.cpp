@@ -63,6 +63,8 @@ Person::~Person()
 
 Person& Person::operator=(const Person &p)
 {
+	if (this == &p)
+		return *this;
 	delete pResource;
 	name = p.name;
 	arbitrarynumber = p.arbitrarynumber;
@@ -90,6 +92,8 @@ int main(int argc, char* argv[])
 
 	Person Kate2 = Kate;
 	Kate = Kate2;
+
+	Kate = Kate;
 
 	return 0;
 }
