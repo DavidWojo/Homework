@@ -1,0 +1,10 @@
+^C:\DEV\VISUALSTUDIO_PROJECTS\VS2022_PROJECTS\GOOGLETEST\GOOGLETEST-MAIN\CMAKEFILES\0FA50CDA7FED403F416D2373CA9BDFC7\GENERATE.STAMP.RULE
+setlocal
+C:\msys64\mingw64\bin\cmake.exe -SC:/dev/VisualStudio_Projects/VS2022_Projects/GoogleTest/googletest-main -BC:/dev/VisualStudio_Projects/VS2022_Projects/GoogleTest/googletest-main --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/dev/VisualStudio_Projects/VS2022_Projects/GoogleTest/googletest-main/googletest-distribution.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

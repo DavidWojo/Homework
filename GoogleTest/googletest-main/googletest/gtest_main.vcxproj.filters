@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\dev\VisualStudio_Projects\VS2022_Projects\GoogleTest\googletest-main\googletest\src\gtest_main.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\dev\VisualStudio_Projects\VS2022_Projects\GoogleTest\googletest-main\googletest\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{7455526A-94C5-3A00-9AD0-018C75E04231}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

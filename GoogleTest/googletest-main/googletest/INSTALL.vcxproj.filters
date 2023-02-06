@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\dev\VisualStudio_Projects\VS2022_Projects\GoogleTest\googletest-main\CMakeFiles\84cb4947aecb129e9165555782f2ef91\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{F6430C56-4D45-3060-BAA3-A5E1BAF6B8EE}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
