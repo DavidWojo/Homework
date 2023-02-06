@@ -14,8 +14,9 @@ Atm::~Atm()
 
 bool Atm::WithDraw(int accountNumber, double amountToWithDraw)
 {
-	bool result = false;
-	pBankServer->Connect();
+	bool result = pBankServer->Connect();
+	if (result == false)
+		return false;
 	double currentBalance = pBankServer->GetBalance(accountNumber);
 	if (currentBalance >= amountToWithDraw)
 	{

@@ -8,17 +8,20 @@ using ::testing::Return;
 using ::testing::_;
 
 
-TEST(AtmTestSuite, TestBankServerMockUsingDefaultBehavior)
+TEST(AtmTestSuite, TestBankServerMockDefaultBehavior)
 {
+	constexpr int accountNumber = 1234;
 	NiceMock<BankServerMock> bankServerMock;
 	Atm atm(&bankServerMock);
-	ASSERT_TRUE(atm.WithDraw(1234, 100));
+	ASSERT_FALSE(atm.WithDraw(accountNumber, 1000));
 }
 
-TEST(AtmTestSuite, TestBankServerMockUsingDefinedBehaviorVer1)
+TEST(AtmTestSuite, TestBankServerMockDefinedBehavior)
 {
 	NiceMock<BankServerMock> bankServerMock;
+	constexpr int accountNumber = 1234;
 	Atm atm(&bankServerMock);
-	ON_CALL(bankServerMock, GetBalance(1234)).WillByDefault(Return(2000));
-	ASSERT_TRUE(atm.WithDraw(1234, 100));
+	ON_CALL(bankServerMock, GetBalance(accountNumber)).WillByDefault(Return(2000));
+	ON_CALL(bankServerMock, Connect).WillByDefault(Return(true));
+	ASSERT_TRUE(atm.WithDraw(accountNumber, 1000));
 }
