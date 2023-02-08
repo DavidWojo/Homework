@@ -1,4 +1,0 @@
-﻿  Test.cpp
-Test.obj : error LNK2019: unresolved external symbol "void __cdecl testing::InitGoogleTest(int *,char * *)" (?InitGoogleTest@testing@@YAXPEAHPEAPEAD@Z) referenced in function main
-..\googletest-main\lib\Debug\gtest.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
-C:\dev\VisualStudio_Projects\VS2022_Projects\GoogleTest\GTestDemo\x64\Debug\GTestDemo.exe : fatal error LNK1120: 1 unresolved externals
