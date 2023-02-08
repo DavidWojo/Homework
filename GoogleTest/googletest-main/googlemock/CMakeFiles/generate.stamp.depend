@@ -1,0 +1,10 @@
+# CMake generation dependency list for this directory.
+C:/dev/VisualStudio_Projects/VS2022_Projects/GoogleTest/googletest-main/googlemock/CMakeLists.txt
+C:/dev/VisualStudio_Projects/VS2022_Projects/GoogleTest/googletest-main/googlemock/cmake/gmock.pc.in
+C:/dev/VisualStudio_Projects/VS2022_Projects/GoogleTest/googletest-main/googlemock/cmake/gmock_main.pc.in
+C:/msys64/mingw64/share/cmake/Modules/CheckCSourceCompiles.cmake
+C:/msys64/mingw64/share/cmake/Modules/CheckIncludeFile.cmake
+C:/msys64/mingw64/share/cmake/Modules/CheckLibraryExists.cmake
+C:/msys64/mingw64/share/cmake/Modules/FindPackageHandleStandardArgs.cmake
+C:/msys64/mingw64/share/cmake/Modules/FindPackageMessage.cmake
+C:/msys64/mingw64/share/cmake/Modules/FindThreads.cmake
