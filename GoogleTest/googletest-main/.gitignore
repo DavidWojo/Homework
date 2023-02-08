@@ -37,6 +37,8 @@ googletest/m4/ltversion.m4
 googletest/m4/lt~obsolete.m4
 googlemock/m4
 
+**/.vs
+
 # Ignore generated directories.
 googlemock/fused-src/
 googletest/fused-src/
