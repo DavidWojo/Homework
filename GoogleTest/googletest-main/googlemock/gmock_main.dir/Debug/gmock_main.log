@@ -1,4 +1,5 @@
-﻿  gtest-all.cc
+﻿  Building Custom Rule C:/dev/VisualStudio_Projects/VS2022_Projects/GoogleTest/googletest-main/googlemock/CMakeLists.txt
+  gtest-all.cc
   gmock-all.cc
   gmock_main.cc
   Generating Code...
